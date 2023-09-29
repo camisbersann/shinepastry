@@ -1,13 +1,5 @@
 import pastryIngredients from "./pastryIngredients"
 
-function calculatePrice(pastel) {
-    let price = 0
-    pastel.ingredients.forEach(ingredient => {
-        price += ingredient.price
-    })
-    return price
-}
-
 const pastrys = [
     {
         id: 1,

@@ -1,3 +1,5 @@
+var id = 0
+
 class Pastry {
     constructor(name, ingredients) {
         this.id = this.makeID();
@@ -8,7 +10,7 @@ class Pastry {
 
     getPrice() {
         let price = 0;
-        this.ingredients.forEach(ingredient => {
+        this.ingredients.map(ingredient => {
             price += ingredient.price
         })
         return price
@@ -28,13 +30,7 @@ class Pastry {
     }
 
     makeID() {
-        let text = "";
-        let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-        for (let i = 0; i < 10; i++)
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-        return text;
+        return id++
     }
 }
 

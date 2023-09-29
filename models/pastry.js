@@ -1,5 +1,5 @@
 class Pastry {
-    constructor(name, ingredients, ) {
+    constructor(name, ingredients) {
         this.id = this.makeID();
         this.name = name;
         this.ingredients = ingredients;

@@ -1,12 +1,15 @@
 class PastryIngredients {
-    constructor(id, name, price) {
-        this.id = id;
-        this.name = name;
-        this.quant = 1;
-        this.price = price*this.quant;
+    constructor() {
+        this.pastryIngredients = [];
     }
 
-    increaseQuant() {
-        this.quant++;
+    add(pastryIngredient) {
+        this.pastryIngredients.push(pastryIngredient);
+    }
+
+    getIngredient(id) {
+        return this.pastryIngredients.find(pastryIngredient => pastryIngredient.id == id-1);
     }
 }
+
+export default PastryIngredients;

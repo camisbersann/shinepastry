@@ -1,5 +1,13 @@
 import pastryIngredients from "./pastryIngredients"
 
+function calculatePrice(pastel) {
+    let price = 0
+    pastel.ingredients.forEach(ingredient => {
+        price += ingredient.price
+    })
+    return price
+}
+
 const pastrys = [
     {
         id: 1,
@@ -9,7 +17,6 @@ const pastrys = [
             pastryIngredients[1],
             pastryIngredients[2]
         ],
-        price : pastryIngredients[0].price + pastryIngredients[1].price + pastryIngredients[2].price,
     },
     {
         id: 2,
@@ -19,7 +26,6 @@ const pastrys = [
             pastryIngredients[3],
             pastryIngredients[6]
         ],
-        price : pastryIngredients[0].price + pastryIngredients[3].price + pastryIngredients[6].price,
     },
     {
         id: 3,
@@ -29,7 +35,6 @@ const pastrys = [
             pastryIngredients[4],
             pastryIngredients[6]
         ],
-        price : pastryIngredients[0].price + pastryIngredients[4].price + pastryIngredients[6].price,
     },
     {
         id: 4,
@@ -39,7 +44,6 @@ const pastrys = [
             pastryIngredients[3],
             pastryIngredients[8]
         ],
-        price : pastryIngredients[0].price + pastryIngredients[3].price + pastryIngredients[8].price,
     },
     {
         id: 5,
@@ -49,7 +53,6 @@ const pastrys = [
             pastryIngredients[9],
             pastryIngredients[6]
         ],
-        price : pastryIngredients[0].price + pastryIngredients[9].price + pastryIngredients[6].price,
     },
     {
         id: 6,
@@ -59,7 +62,6 @@ const pastrys = [
             pastryIngredients[10],
             pastryIngredients[11]
         ],
-        price : pastryIngredients[0].price + pastryIngredients[10].price + pastryIngredients[11].price,
     },
     {
         id: 7,
@@ -69,7 +71,6 @@ const pastrys = [
             pastryIngredients[12],
             pastryIngredients[11]
         ],
-        price : pastryIngredients[0].price + pastryIngredients[12].price + pastryIngredients[11].price,
     },
 ]
 

@@ -104,3 +104,5 @@ const drinks = [
         quantMl: 500,
     },
 ]
+
+export default drinks;

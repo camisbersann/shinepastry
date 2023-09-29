@@ -72,3 +72,5 @@ const pastrys = [
         price : pastryIngredients[0].price + pastryIngredients[12].price + pastryIngredients[11].price,
     },
 ]
+
+export default pastrys

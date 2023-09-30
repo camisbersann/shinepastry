@@ -137,6 +137,8 @@ export default function Home() {
 
     setButtonMainVisible(styles.showing + ' ' + styles.buttonMain);
     setMakeOrderMainVisible(styles.hidden + ' ' + styles.makeOrderMain);
+    setCustomOrderDivVisible(styles.hidden + ' ' + styles.customOrderDiv);
+    setMakingOrderDivVisible(styles.showing + ' ' + styles.makingOrderDiv);
   }
 
   function returnMainButton() {

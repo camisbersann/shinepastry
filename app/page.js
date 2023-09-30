@@ -17,6 +17,8 @@ import Drinks from '@/models/drinksList'
 import { Header } from './components/header/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons/faCircleArrowLeft';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+
 
 
 
@@ -221,7 +223,7 @@ export default function Home() {
             {
               orderPastry.length > 0 ? `quantidade de itens: ${orderPastry.length}` : 'quantidade de itens: 0'
             }
-            <button onClick={addPastelToOrder} className={styles.order}>Adicionar bebida</button>
+            <button onClick={addPastelToOrder} className={styles.order}>Adicionar pastel</button>
             <button onClick={addDrinkToOrder} className={styles.order}>Adicionar bebida</button>
             <button onClick={customOrderScreen} className={styles.order}>Customizar e finalizar compra</button>
           </div>
@@ -247,7 +249,7 @@ export default function Home() {
                       }
                     </ul>
                     <h2>preço: R${pastry.price},00</h2>
-                    <button onClick={removeItem} value={pastry.id}>Remover Item</button>
+                    <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{color: "#fb0909",}} /></button>
                   </div>
                 )
               } else {
@@ -255,7 +257,7 @@ export default function Home() {
                   <div key={pastry.id} className={styles.drinkCard}>
                     <h1>{pastry.name}</h1>
                     <h2>preço: R${pastry.price},00</h2>
-                    <button onClick={removeItem} value={pastry.id}>Remover Item</button>
+                    <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{color: "#fb0909",}} /></button>
                   </div>
                 )
               }

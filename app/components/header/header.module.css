@@ -1,0 +1,9 @@
+.header{
+    background-color: #f8db86;
+    display: flex;
+}
+
+.links{
+    text-decoration: none;
+    text-align: right;
+}

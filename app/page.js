@@ -11,6 +11,7 @@ import PastryIngredients from '@/models/pastryIngredients'
 import PastrysList from '@/models/pastrysList'
 import PastryIngredient from '@/models/pastryIngredient'
 import Pastry from '@/models/pastry'
+import { Header } from './components/header/Header'
 
 const pastryIngredientsList = new PastryIngredients();
 const pastrysList = new PastrysList();
@@ -31,7 +32,7 @@ export default function Home() {
   console.log(pastrysList)
 
   return (
-    <>
-    </>
+    <Header></Header>
+    
   )
 }

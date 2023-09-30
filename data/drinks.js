@@ -37,7 +37,7 @@ const drinks = [
     {
         id:6,
         name: 'Água mineral',
-        price: 2.50,
+        price: 2.00,
         quantMl: 500,
     },
 

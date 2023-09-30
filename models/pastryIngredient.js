@@ -14,6 +14,13 @@ class PastryIngredient {
         this.totalPrice = this.getTotalPrice();
     }
 
+    decreaseQuant() {
+        if (this.quant > 0) {
+            this.quant--;
+            this.totalPrice = this.getTotalPrice();
+        }
+    }
+
     makeID() {
         return id++
     }

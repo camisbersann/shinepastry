@@ -7,8 +7,8 @@ class PastrysList {
         this.pastrys.push(pastry);
     }
 
-    getPastry(id) {
-        return this.pastrys.find(pastry => pastry.id == id-1);
+    getPastry(name) {
+        return this.pastrys.find(pastry => pastry.name == name);
     }
 }
 

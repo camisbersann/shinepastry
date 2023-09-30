@@ -129,16 +129,21 @@ export default function Home() {
   }
 
   function endOrder() {
-    setEndedOrders([...endedOrders, orderPastry])
-    setPastry('');
-    setDrink('');
-    setOrderPastry([]);
-    setOrderPrice(0);
+    if(orderPastry.length == 0) {
+      alert('adicione pelo menos um item ao pedido')
+      return
+    } else {
+      setEndedOrders([...endedOrders, orderPastry])
+      setPastry('');
+      setDrink('');
+      setOrderPastry([]);
+      setOrderPrice(0);
 
-    setButtonMainVisible(styles.showing + ' ' + styles.buttonMain);
-    setMakeOrderMainVisible(styles.hidden + ' ' + styles.makeOrderMain);
-    setCustomOrderDivVisible(styles.hidden + ' ' + styles.customOrderDiv);
-    setMakingOrderDivVisible(styles.showing + ' ' + styles.makingOrderDiv);
+      setButtonMainVisible(styles.showing + ' ' + styles.buttonMain);
+      setMakeOrderMainVisible(styles.hidden + ' ' + styles.makeOrderMain);
+      setCustomOrderDivVisible(styles.hidden + ' ' + styles.customOrderDiv);
+      setMakingOrderDivVisible(styles.showing + ' ' + styles.makingOrderDiv);
+    }
   }
 
   function returnMainButton() {
@@ -221,7 +226,7 @@ export default function Home() {
                       {
                         pastry.ingredients.map(ingredient => {
                             return (
-                              <li key={ingredient.id}>{ingredient.name} - R${ingredient.price},00 - <button onClick={drecreasequant} value={ingredient.id}>-</button>{ingredient.quant}<button onClick={addquant} value={ingredient.id}>+</button></li>
+                              <li key={ingredient.id} className={styles.fixeddistan}><div>{ingredient.name} - R${ingredient.price},00 - </div><div><button onClick={drecreasequant} value={ingredient.id} className={styles.removeButton}>-</button><strong className={styles.ingredientquant}>{ingredient.quant}</strong><button onClick={addquant} value={ingredient.id} className={styles.addButton}>+</button></div></li>
                             )
                         })
                       }

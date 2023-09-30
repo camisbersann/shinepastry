@@ -1,11 +1,14 @@
+/*auxiliar para mostrar qual tela está aparecendo, evite usar display:none,flex,block nos elementos prefira usar essa class*/
 .hidden {
     display: none;
 }
 
+/*auxiliar para mostrar qual tela está aparecendo, evite usar display:none,flex,block nos elementos prefira usar essa class*/
 .showing {
     display: flex;
 }
 
+/*tela principal para escolher entre ver os pedidos e fazer um*/
 .buttonMain {
     background-color: #4CAF50;
     border: none;
@@ -17,6 +20,7 @@
     justify-content: space-around;
 }
 
+/*tela principal para fazer pedidos*/
 .makeOrderMain {
     flex-direction: column;
     align-items: center;
@@ -24,6 +28,7 @@
     margin: 20px;
 }
 
+/*tela principal para ver pedidos*/
 .seeOrdersMain {
     flex-direction: column;
     align-items: center;
@@ -31,6 +36,7 @@
     margin: 20px;
 }
 
+/*doubleButton é a estilização dos dois botões iniciais que levam a paginas diferentes*/
 .doubleButton {
     display: flex;
     width:30%;
@@ -43,6 +49,7 @@
     color:#000;
 }
 
+/*customOrderDiv é aonde você customiza o pastel ou tira coisas do seu pedido*/
 .customOrderDiv {
     flex-direction: column;
     align-items: center;
@@ -50,6 +57,7 @@
     margin: 20px;
 }
 
+/*makingOrderDiv é aonde você seleciona os pasteis e bebidas que quer comprar*/
 .makingOrderDiv {
     flex-direction: column;
     align-items: center;
@@ -57,6 +65,7 @@
     margin: 20px;
 }
 
+/*pastelCard é a estilização na hora de finalizar o pedido ou customizar ele, é oq mostra o pastel e as opções de adicionar*/
 .pastelCard {
     display: flex;
     flex-direction: column;
@@ -72,6 +81,7 @@
     height: 30%;
 }
 
+/*drinkCard é a estilização na hora de finalizar o pedido ou customizar ele, é oq mostra a bebida pedida*/
 .drinkCard {
     display: flex;
     flex-direction: column;
@@ -87,6 +97,8 @@
     height: 30%;
 }
 
+/*orderCard é o que contem os items já pedidos na tela geral de pedidos, exemplo é eu pedir um pastel e uma coca,
+essa estilização vai ser o que tem a coca e o pastel dentro*/
 .orderCard {
     display: flex;
     flex-direction: column;
@@ -102,6 +114,9 @@
     height: 30%;
 }
 
+/*orderItem é o item que aparece na tela geral de pedidos aonde mostra apenas o nome e preço do item
+na via das duvidas adiciona um pedido e aperta o botão da direita
+*/
 .orderItem {
     display: flex;
     flex-direction: row;

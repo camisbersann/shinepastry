@@ -150,6 +150,10 @@ export default function Home() {
     setButtonMainVisible(styles.showing + ' ' + styles.buttonMain);
     setSeeOrdersMainVisible(styles.hidden + ' ' + styles.seeOrdersMain);
     setMakeOrderMainVisible(styles.hidden + ' ' + styles.makeOrderMain);
+    setPastry('');
+    setDrink('');
+    setOrderPastry([]);
+    setOrderPrice(0);
   }
 
   function removeItem(event) {

@@ -250,7 +250,7 @@ export default function Home() {
                         })
                       }
                     </ul>
-                    <h2>preço: R${pastry.price},00</h2>
+                    <h2>Preço: R${pastry.price},00</h2>
                     <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{color: "#fb0909",}} /></button>
                   </div>
                 )
@@ -258,7 +258,7 @@ export default function Home() {
                 return (
                   <div key={pastry.id} className={styles.drinkCard}>
                     <h1>{pastry.name}</h1>
-                    <h2>preço: R${pastry.price},00</h2>
+                    <h2>Preço: R${pastry.price},00</h2>
                     <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{color: "#fb0909",}} /></button>
                   </div>
                 )

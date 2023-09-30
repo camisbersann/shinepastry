@@ -20,6 +20,8 @@ import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons/faCircleArr
 
 
 
+
+
 const drinksList = new Drinks();
 const pastrysList = new PastrysList();
 
@@ -187,10 +189,10 @@ export default function Home() {
       </main>
 
       <main className={makeOrderMainVisible}>
-        <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{color: "#de9f17",}}/> </button>
+        <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{color: "#de9f17",}}/></button>
         <h1>Opções</h1>
         <div className={makingOrderDivVisible}>
-          <div>
+          <div className={styles.options}>
             <select value={pastry} onChange={changePastry}>
               <option value=''>Selecione um pastel</option>
               {
@@ -219,9 +221,9 @@ export default function Home() {
             {
               orderPastry.length > 0 ? `quantidade de itens: ${orderPastry.length}` : 'quantidade de itens: 0'
             }
-            <button onClick={addPastelToOrder}>adicionar pastel</button>
-            <button onClick={addDrinkToOrder}>adicionar bebida</button>
-            <button onClick={customOrderScreen}>customizar e finalizar compra</button>
+            <button onClick={addPastelToOrder} className={styles.order}>Adicionar bebida</button>
+            <button onClick={addDrinkToOrder} className={styles.order}>Adicionar bebida</button>
+            <button onClick={customOrderScreen} className={styles.order}>Customizar e finalizar compra</button>
           </div>
         </div>
 

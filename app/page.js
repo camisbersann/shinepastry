@@ -15,6 +15,8 @@ import Pastry from '@/models/pastry'
 import Drink from '@/models/drink'
 import Drinks from '@/models/drinksList'
 import { Header } from './components/header/Header'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons/faCircleArrowLeft';
 
 
 
@@ -185,7 +187,7 @@ export default function Home() {
       </main>
 
       <main className={makeOrderMainVisible}>
-        <button onClick={returnMainButton}>Voltar ↩</button>
+        <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{color: "#de9f17",}}/> </button>
         <h1>Opções</h1>
         <div className={makingOrderDivVisible}>
           <div>

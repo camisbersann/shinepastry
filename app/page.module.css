@@ -170,3 +170,11 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     margin:0.25rem;
 }
 
+.icon{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 3rem;
+    text-align: right;
+}
+

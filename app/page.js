@@ -18,6 +18,8 @@ import { Header } from './components/header/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons/faCircleArrowLeft';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
 
 
 
@@ -243,7 +245,7 @@ export default function Home() {
                       {
                         pastry.ingredients.map(ingredient => {
                             return (
-                              <li key={ingredient.id} className={styles.fixeddistan}><div>{ingredient.name} - R${ingredient.price},00 - </div><div><button onClick={drecreasequant} value={ingredient.id} className={styles.removeButton}>-</button><strong className={styles.ingredientquant}>{ingredient.quant}</strong><button onClick={addquant} value={ingredient.id} className={styles.addButton}>+</button></div></li>
+                              <li key={ingredient.id} className={styles.fixeddistan}><div>{ingredient.name} - R${ingredient.price},00 - </div><div><button onClick={drecreasequant} value={ingredient.id} className={styles.removeButton}><FontAwesomeIcon icon={faMinus} style={{color: "#590903",}} /></button><strong className={styles.ingredientquant}>{ingredient.quant}</strong><button onClick={addquant} value={ingredient.id} className={styles.addButton}><FontAwesomeIcon icon={faPlus} style={{color: "#32a800",}} /></button></div></li>
                             )
                         })
                       }

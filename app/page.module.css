@@ -138,7 +138,7 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
 }
 
 .removeButton {
-    background-color: #f44336;
+    background-color: white;
     border: none;
     color: white;
     padding: 2.5px 5px;
@@ -146,10 +146,11 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     text-decoration: none;
     font-size: 16px;
     justify-content: space-around;
+    cursor: pointer;
 }
 
 .addButton {
-    background-color: #4CAF50;
+    background-color: white;
     border: none;
     color: white;
     padding: 2.5px 5px;
@@ -157,6 +158,7 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     text-decoration: none;
     font-size: 16px;
     justify-content: space-around;
+    cursor: pointer;
 }
 
 .fixeddistan {

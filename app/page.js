@@ -14,6 +14,9 @@ import PastryIngredient from '@/models/pastryIngredient'
 import Pastry from '@/models/pastry'
 import Drink from '@/models/drink'
 import Drinks from '@/models/drinksList'
+import { Header } from './components/header/Header'
+
+
 
 const drinksList = new Drinks();
 const pastrysList = new PastrysList();
@@ -110,9 +113,10 @@ export default function Home() {
         if (ingredient.id == event.target.value) {
           ingredient.increaseQuant()
           setOrderPrice(Number(orderPrice + ingredient.price))
+          pastry.renderPrice();
         }
       })
-      pastry.renderPrice()
+     
     })
   }
 
@@ -122,9 +126,10 @@ export default function Home() {
         if (ingredient.id == event.target.value) {
           ingredient.decreaseQuant()
           setOrderPrice(Number(orderPrice - ingredient.price))
+          pastry.renderPrice();
         }
       })
-      pastry.renderPrice()
+     
     })
   }
 
@@ -168,22 +173,24 @@ export default function Home() {
 
   return (
     <>
+      <Header></Header>
+
       <main className={buttonMainVisible}>
         <section className={styles.doubleButton} onClick={changeScreen1}>
-          <h1>tela de fazer pedidos</h1>
+          <h1>Fazer pedidos</h1>
         </section>
         <section className={styles.doubleButton} onClick={changeScreen2}>
-          <h1>tela de ver pedidos</h1>
+          <h1>Ver pedidos</h1>
         </section>
       </main>
 
       <main className={makeOrderMainVisible}>
-        <button onClick={returnMainButton}>retornar para principal</button>
-        <h1>teste2</h1>
+        <button onClick={returnMainButton}>Voltar ↩</button>
+        <h1>Opções</h1>
         <div className={makingOrderDivVisible}>
           <div>
             <select value={pastry} onChange={changePastry}>
-              <option value=''>selecione um pastel</option>
+              <option value=''>Selecione um pastel</option>
               {
                 pastrysList.pastrys.map(pastry => {
                   return (
@@ -193,7 +200,7 @@ export default function Home() {
               }
             </select>
             <select value={drink} onChange={changeDrink}>
-              <option value=''>selecione uma bebida</option>
+              <option value=''>Selecione uma bebida</option>
               {
                 drinksList.drinks.map(drink => {
                   return (
@@ -285,6 +292,7 @@ export default function Home() {
           })
         }
       </main>
+
     </>
   )
 }

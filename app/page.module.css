@@ -6,12 +6,39 @@
     display: flex;
 }
 
-.doubleSection {
-    width:50%;
+.buttonMain {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
-    cursor: pointer;
-    border: 1px solid black;
+    text-decoration: none;
+    font-size: 16px;
+    justify-content: space-around;
+}
+
+.makeOrderMain {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.seeOrdersMain {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.doubleButton {
+    display: flex;
+    width:30%;
+    border: 1px solid #000;
     border-radius: 5px;
-    margin: 3rem;
-    height:100%;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color:#000;
 }

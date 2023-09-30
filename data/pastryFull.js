@@ -25,7 +25,7 @@ const pastrys = [
         ingredients : [
             pastryIngredients[0],
             pastryIngredients[4],
-            pastryIngredients[6]
+            pastryIngredients[5]
         ],
     },
     {
@@ -34,7 +34,8 @@ const pastrys = [
         ingredients : [
             pastryIngredients[0],
             pastryIngredients[3],
-            pastryIngredients[8]
+            pastryIngredients[7],
+            pastryIngredients[6]
         ],
     },
     {
@@ -42,8 +43,8 @@ const pastrys = [
         name: 'Pastel de brócolis',
         ingredients : [
             pastryIngredients[0],
-            pastryIngredients[9],
-            pastryIngredients[6]
+            pastryIngredients[8],
+            pastryIngredients[5]
         ],
     },
     {
@@ -51,8 +52,8 @@ const pastrys = [
         name: 'Pastel de chocolate',
         ingredients : [
             pastryIngredients[0],
-            pastryIngredients[10],
-            pastryIngredients[11]
+            pastryIngredients[9],
+            pastryIngredients[10]
         ],
     },
     {

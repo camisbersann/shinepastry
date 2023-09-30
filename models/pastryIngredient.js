@@ -11,6 +11,7 @@ class PastryIngredient {
 
     increaseQuant() {
         this.quant++;
+        this.totalPrice = this.getTotalPrice();
     }
 
     makeID() {

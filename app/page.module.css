@@ -63,7 +63,6 @@
 /*makingOrderDiv é aonde você seleciona os pasteis e bebidas que quer comprar*/
 .makingOrderDiv {
     flex-direction: column;
-    display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px;

@@ -52,6 +52,10 @@
     background-color: #955116;
 }
 
+.doubleButton:hover {
+    background-color: #d49b00b0;
+}
+
 /*customOrderDiv é aonde você customiza o pastel ou tira coisas do seu pedido*/
 .customOrderDiv {
     flex-direction: column;
@@ -109,7 +113,7 @@ essa estilização vai ser o que tem a coca e o pastel dentro*/
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 20px;
     border: 1px solid #000;
     border-radius: 5px;
@@ -128,10 +132,8 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    margin: 20px;
-    border: 1px solid #000;
+    margin: 0.5rem;
     border-radius: 5px;
-    padding: 1rem;
     background-color: #ffffff;
     color:#000;
     width:70%;
@@ -203,13 +205,29 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     color: #333;
 }
 
+.options select {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
 .iconRemove{
     background-color:#d49b00b0;
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
     margin-top: 0.5rem;
+    padding:0.5rem;
+    border-radius:5px;
+}
 
+.iconRemove:hover{
+    background-color:#d49b00d0;
+    scale: 1.1;
 }
 
 .finishOrder{
@@ -219,4 +237,47 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     height: 4rem;
     cursor: pointer;
     font-size: 1.2rem;
+}
+
+.detalhes {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    cursor: pointer;
+}
+
+.deleteButton {
+    background-color: #d00000d0;
+    border: none;
+    color: white;
+    padding: 0.25rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    justify-content: space-around;
+    cursor: pointer;
+    border-radius: 5px;
+    margin:0.25rem;
+}
+
+.deleteButton:hover {
+    background-color: #d40000b0;
+}
+
+.payButton {
+    background-color: #0055d4b0;
+    border: none;
+    color: white;
+    padding: 0.25rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    justify-content: space-around;
+    cursor: pointer;
+    border-radius: 5px;
+    margin:0.25rem;
+}
+
+.payButton:hover {
+    background-color: #0055d4d0;
 }

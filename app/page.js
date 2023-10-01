@@ -20,6 +20,7 @@ import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons/faCircleArr
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
+import { SendMessage } from './components/sendMessage/SendMessage'
 
 
 
@@ -59,12 +60,17 @@ export default function Home() {
   const [orderPastry, setOrderPastry] = useState([]);
   const [orderPrice, setOrderPrice] = useState(0);
   const [endedOrders, setEndedOrders] = useState([]);
+  const [orderID, setOrderID] = useState(0);
 
   const [buttonMainVisible, setButtonMainVisible] = useState(styles.showing + ' ' + styles.buttonMain);
   const [makeOrderMainVisible, setMakeOrderMainVisible] = useState(styles.hidden + ' ' + styles.makeOrderMain);
   const [seeOrdersMainVisible, setSeeOrdersMainVisible] = useState(styles.hidden + ' ' + styles.seeOrdersMain);
   const [customOrderDivVisible, setCustomOrderDivVisible] = useState(styles.hidden + ' ' + styles.customOrderDiv);
   const [makingOrderDivVisible, setMakingOrderDivVisible] = useState(styles.hidden + ' ' + styles.makingOrderDiv);
+
+  const [typeMessage, setTypeMessage] = useState('');
+  const [message, setMessage] = useState('');
+  const [messageVisible, setMessageVisible] = useState(styles.hidden);
 
   function changeScreen1() {
     setButtonMainVisible(styles.hidden + ' ' + styles.buttonMain);
@@ -87,21 +93,35 @@ export default function Home() {
 
   function addPastelToOrder() {
     if (pastry == '') {
-      alert('selecione um pastel')
+      setMessage('selecione um pastel')
+      setTypeMessage('error')
+      setMessageVisible(styles.showing)
+      disapearMessage()
       return
     } else {
       setOrderPastry([...orderPastry, pastrysList.getPastry(pastry)])
       setOrderPrice(Number(orderPrice + pastrysList.getPastry(pastry).price))
+      setMessage('pastel adicionado ao pedido')
+      setTypeMessage('success')
+      setMessageVisible(styles.showing)
+      disapearMessage()
     }
   }
 
   function addDrinkToOrder() {
     if (drink == '') {
-      alert('selecione uma bebida')
+      setMessage('selecione uma bebida')
+      setTypeMessage('error')
+      setMessageVisible(styles.showing)
+      disapearMessage()
       return
     } else {
       setOrderPastry([...orderPastry, drinksList.getDrink(drink)])
       setOrderPrice(Number(orderPrice + drinksList.getDrink(drink).price))
+      setMessage('bebida adicionada ao pedido')
+      setTypeMessage('success')
+      setMessageVisible(styles.showing)
+      disapearMessage()
     }
   }
 
@@ -124,7 +144,7 @@ export default function Home() {
           pastry.renderPrice();
         }
       })
-     
+
     })
   }
 
@@ -137,32 +157,52 @@ export default function Home() {
           pastry.renderPrice();
         }
       })
-     
+
     })
   }
 
   function endOrder() {
-    if(orderPastry.length == 0) {
-      alert('adicione pelo menos um item ao pedido')
+    if (orderPastry.length == 0) {
+      setMessage('adicione um item ao pedido')
+      setTypeMessage('error')
+      setMessageVisible(styles.showing)
+      disapearMessage()
       return
     } else {
-      setEndedOrders([...endedOrders, orderPastry])
-      setPastry('');
-      setDrink('');
-      setOrderPastry([]);
-      setOrderPrice(0);
-
-      setButtonMainVisible(styles.showing + ' ' + styles.buttonMain);
-      setMakeOrderMainVisible(styles.hidden + ' ' + styles.makeOrderMain);
-      setCustomOrderDivVisible(styles.hidden + ' ' + styles.customOrderDiv);
-      setMakingOrderDivVisible(styles.showing + ' ' + styles.makingOrderDiv);
+      setOrderPastry([...orderPastry, orderID])
+      addToEndedOrders()
+      setMessage('pedido finalizado')
+      setTypeMessage('success')
+      setMessageVisible(styles.showing)
+      disapearMessage()
     }
+  }
+
+  function disapearMessage() {
+    setTimeout(() => {
+      setMessageVisible(styles.hidden)
+    }, 4000)
+  }
+
+  function addToEndedOrders() {
+    setEndedOrders([...endedOrders, orderPastry])
+    setPastry('');
+    setDrink('');
+    setOrderPastry([]);
+    setOrderPrice(0);
+    setOrderID(orderID + 1);
+
+    setButtonMainVisible(styles.showing + ' ' + styles.buttonMain);
+    setMakeOrderMainVisible(styles.hidden + ' ' + styles.makeOrderMain);
+    setCustomOrderDivVisible(styles.hidden + ' ' + styles.customOrderDiv);
+    setMakingOrderDivVisible(styles.showing + ' ' + styles.makingOrderDiv);
   }
 
   function returnMainButton() {
     setButtonMainVisible(styles.showing + ' ' + styles.buttonMain);
     setSeeOrdersMainVisible(styles.hidden + ' ' + styles.seeOrdersMain);
     setMakeOrderMainVisible(styles.hidden + ' ' + styles.makeOrderMain);
+    setCustomOrderDivVisible(styles.hidden + ' ' + styles.customOrderDiv);
     setPastry('');
     setDrink('');
     setOrderPastry([]);
@@ -179,10 +219,23 @@ export default function Home() {
     setOrderPastry([...orderPastry])
   }
 
+  function deleteOrder(event) {
+    endedOrders.forEach((order, index) => {
+      if (order[order.length - 1] == event.target.value) {
+        endedOrders.splice(index, 1)
+      }
+    })
+    setEndedOrders([...endedOrders])
+  }
+
   return (
     <>
       <Header></Header>
-
+      {
+        <div className={messageVisible}>
+          <SendMessage type={typeMessage} message={message}></SendMessage>
+        </div>
+      }
       <main className={buttonMainVisible}>
         <section className={styles.doubleButton} onClick={changeScreen1}>
           <h1>Fazer pedidos</h1>
@@ -193,7 +246,7 @@ export default function Home() {
       </main>
 
       <main className={makeOrderMainVisible}>
-        <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{color: "#de9f17",}}/></button>
+        <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{ color: "#de9f17", }} /></button>
         <h1>Opções</h1>
         <div className={makingOrderDivVisible}>
           <div className={styles.options}>
@@ -212,7 +265,7 @@ export default function Home() {
               {
                 drinksList.drinks.map(drink => {
                   return (
-                    <option value={drink.id} key={drink.id+'a'}>{drink.name} - R${drink.price},00</option>
+                    <option value={drink.id} key={drink.id + 'a'}>{drink.name} - R${drink.price},00</option>
                   )
                 })
               }
@@ -220,10 +273,10 @@ export default function Home() {
           </div>
           <div>
             {
-              orderPrice > 0 ? `preço total: R$ ${orderPrice},00` : 'preço total: R$ 0,00'
+              orderPrice > 0 ? <p>preço total: R$ ${orderPrice},00</p> : <p>preço total: R$ 0,00</p>
             }
             {
-              orderPastry.length > 0 ? `quantidade de itens: ${orderPastry.length}` : 'quantidade de itens: 0'
+              orderPastry.length > 0 ? <p>quantidade de itens: {orderPastry.length}</p> : <p>quantidade de itens: 0</p>
             }
             <button onClick={addPastelToOrder} className={styles.order}>Adicionar pastel</button>
             <button onClick={addDrinkToOrder} className={styles.order}>Adicionar bebida</button>
@@ -237,21 +290,23 @@ export default function Home() {
           </button>
           {
             orderPastry.map(pastry => {
-              if(pastry.ingredients.length > 0) {
+              if (pastry.ingredients.length > 0) {
                 return (
                   <div key={pastry.id} className={styles.pastelCard}>
                     <h1>{pastry.name}</h1>
                     <ul>
-                      {
-                        pastry.ingredients.map(ingredient => {
+                      <details>
+                        {
+                          pastry.ingredients.map(ingredient => {
                             return (
-                              <li key={ingredient.id} className={styles.fixeddistan}><div>{ingredient.name} - R${ingredient.price},00 - </div><div><button onClick={drecreasequant} value={ingredient.id} className={styles.removeButton}><FontAwesomeIcon icon={faMinus} style={{color: "#590903",}} /></button><strong className={styles.ingredientquant}>{ingredient.quant}</strong><button onClick={addquant} value={ingredient.id} className={styles.addButton}><FontAwesomeIcon icon={faPlus} style={{color: "#32a800",}} /></button></div></li>
+                              <li key={ingredient.id} className={styles.fixeddistan}><div>{ingredient.name} - R${ingredient.price},00 - </div><div><button onClick={drecreasequant} value={ingredient.id} className={styles.removeButton}><FontAwesomeIcon icon={faMinus} style={{ color: "#590903", }} /></button><strong className={styles.ingredientquant}>{ingredient.quant}</strong><button onClick={addquant} value={ingredient.id} className={styles.addButton}><FontAwesomeIcon icon={faPlus} style={{ color: "#32a800", }} /></button></div></li>
                             )
-                        })
-                      }
+                          })
+                        }
+                      </details>
                     </ul>
                     <h2>Preço: R${pastry.price},00</h2>
-                    <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{color: "#fb0909",}} /></button>
+                    <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{ color: "#fb0909", }} /></button>
                   </div>
                 )
               } else {
@@ -259,7 +314,7 @@ export default function Home() {
                   <div key={pastry.id} className={styles.drinkCard}>
                     <h1>{pastry.name}</h1>
                     <h2>Preço: R${pastry.price},00</h2>
-                    <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{color: "#fb0909",}} /></button>
+                    <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{ color: "#fb0909", }} /></button>
                   </div>
                 )
               }
@@ -274,15 +329,32 @@ export default function Home() {
         {
           endedOrders.map(order => {
             return (
-              <div key={order.id} className={styles.orderCard}>
+              <div key={order[order.length - 1]} className={styles.orderCard}>
                 <h1>pedido</h1>
                 {
                   order.map(pastry => {
-                    if(pastry.ingredients.length > 0) {
+                    if (pastry.ingredients.length > 0) {
                       return (
                         <div key={pastry.id} className={styles.orderItem}>
                           <h1>{pastry.name}</h1>
                           <h2>preço: R${pastry.price},00</h2>
+                          <details>
+                            <ul className={styles.detalhes}>
+                              {
+                                pastry.ingredients.map(ingredient => {
+                                  if (ingredient.quant > 0) {
+                                    return (
+                                      <li key={ingredient.id}>{ingredient.name} - R${ingredient.price},00 - {ingredient.quant}</li>
+                                    )
+                                  }
+
+                                })
+                              }
+                            </ul>
+                          </details>
+                          <div>
+                              
+                          </div>
                         </div>
                       )
                     } else {
@@ -295,6 +367,10 @@ export default function Home() {
                     }
                   })
                 }
+                <div>
+                <button value={order[order.length - 1]} onClick={deleteOrder} className={styles.deleteButton}>Cancelar Pedido</button>
+                <button className={styles.payButton} onClick={deleteOrder} value={order[order.length - 1]}>Finalizar Pedido</button>
+                </div>
               </div>
             )
           })

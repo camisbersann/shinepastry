@@ -265,7 +265,7 @@ export default function Home() {
               }
             })
           }
-          <button onClick={endOrder}>Finalizar compra</button>
+          <button onClick={endOrder} className={styles.finishOrder}>Finalizar pedido</button>
         </div>
       </main>
 

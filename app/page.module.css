@@ -77,13 +77,14 @@
     align-items: center;
     justify-content: center;
     margin: 20px;
-    border: 1px solid #000;
-    border-radius: 5px;
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: #d49b00b0;
     color:#000;
     width:150%;
     height: 30%;
+    -webkit-box-shadow: -1px 10px 41px 0px rgba(51,38,5,1);
+    -moz-box-shadow: -1px 10px 41px 0px rgba(51,38,5,1);
+    box-shadow: -1px 10px 41px 0px rgba(51,38,5,1);
 }
 
 /*drinkCard é a estilização na hora de finalizar o pedido ou customizar ele, é oq mostra a bebida pedida*/
@@ -93,13 +94,14 @@
     align-items: center;
     justify-content: center;
     margin: 20px;
-    border: 1px solid #000;
-    border-radius: 5px;
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: #d49b00b0;
     color:#000;
     width:150%;
     height: 30%;
+    --webkit-box-shadow: -1px 10px 103px 0px rgba(51,38,5,1);
+    -moz-box-shadow: -1px 10px 103px 0px rgba(51,38,5,1);
+    box-shadow: -1px 10px 103px 0px rgba(51,38,5,1);
 }
 
 /*orderCard é o que contem os items já pedidos na tela geral de pedidos, exemplo é eu pedir um pastel e uma coca,
@@ -138,7 +140,7 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
 }
 
 .removeButton {
-    background-color: #f44336;
+    background-color: #d49b00d0;  
     border: none;
     color: white;
     padding: 2.5px 5px;
@@ -146,10 +148,11 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     text-decoration: none;
     font-size: 16px;
     justify-content: space-around;
+    cursor: pointer;
 }
 
 .addButton {
-    background-color: #4CAF50;
+    background-color: #d49b00b0;
     border: none;
     color: white;
     padding: 2.5px 5px;
@@ -157,6 +160,7 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     text-decoration: none;
     font-size: 16px;
     justify-content: space-around;
+    cursor: pointer;
 }
 
 .fixeddistan {
@@ -170,3 +174,50 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     margin:0.25rem;
 }
 
+.icon{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 3rem;
+
+}
+
+.order{
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    color:#000;
+    background-color: #955116;
+    cursor: pointer;
+    width: 15%;
+    display: block;
+    width: 40%;
+    margin-top: 1rem;
+}
+
+.options{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    color: #333;
+}
+
+.iconRemove{
+    background-color:#d49b00b0;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+
+}
+
+.finishOrder{
+    border-radius: 6px;
+    background-color: #955116;
+    width: 50%;
+    height: 4rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+}

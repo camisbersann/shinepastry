@@ -15,6 +15,14 @@ import Pastry from '@/models/pastry'
 import Drink from '@/models/drink'
 import Drinks from '@/models/drinksList'
 import { Header } from './components/header/Header'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons/faCircleArrowLeft';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
+
+
+
 
 
 
@@ -185,10 +193,10 @@ export default function Home() {
       </main>
 
       <main className={makeOrderMainVisible}>
-        <button onClick={returnMainButton}>Voltar ↩</button>
+        <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{color: "#de9f17",}}/></button>
         <h1>Opções</h1>
         <div className={makingOrderDivVisible}>
-          <div>
+          <div className={styles.options}>
             <select value={pastry} onChange={changePastry}>
               <option value=''>Selecione um pastel</option>
               {
@@ -217,9 +225,9 @@ export default function Home() {
             {
               orderPastry.length > 0 ? `quantidade de itens: ${orderPastry.length}` : 'quantidade de itens: 0'
             }
-            <button onClick={addPastelToOrder}>adicionar pastel</button>
-            <button onClick={addDrinkToOrder}>adicionar bebida</button>
-            <button onClick={customOrderScreen}>customizar e finalizar compra</button>
+            <button onClick={addPastelToOrder} className={styles.order}>Adicionar pastel</button>
+            <button onClick={addDrinkToOrder} className={styles.order}>Adicionar bebida</button>
+            <button onClick={customOrderScreen} className={styles.order}>Customizar e finalizar compra</button>
           </div>
         </div>
 
@@ -237,27 +245,27 @@ export default function Home() {
                       {
                         pastry.ingredients.map(ingredient => {
                             return (
-                              <li key={ingredient.id} className={styles.fixeddistan}><div>{ingredient.name} - R${ingredient.price},00 - </div><div><button onClick={drecreasequant} value={ingredient.id} className={styles.removeButton}>-</button><strong className={styles.ingredientquant}>{ingredient.quant}</strong><button onClick={addquant} value={ingredient.id} className={styles.addButton}>+</button></div></li>
+                              <li key={ingredient.id} className={styles.fixeddistan}><div>{ingredient.name} - R${ingredient.price},00 - </div><div><button onClick={drecreasequant} value={ingredient.id} className={styles.removeButton}><FontAwesomeIcon icon={faMinus} style={{color: "#590903",}} /></button><strong className={styles.ingredientquant}>{ingredient.quant}</strong><button onClick={addquant} value={ingredient.id} className={styles.addButton}><FontAwesomeIcon icon={faPlus} style={{color: "#32a800",}} /></button></div></li>
                             )
                         })
                       }
                     </ul>
-                    <h2>preço: R${pastry.price},00</h2>
-                    <button onClick={removeItem} value={pastry.id}>Remover Item</button>
+                    <h2>Preço: R${pastry.price},00</h2>
+                    <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{color: "#fb0909",}} /></button>
                   </div>
                 )
               } else {
                 return (
                   <div key={pastry.id} className={styles.drinkCard}>
                     <h1>{pastry.name}</h1>
-                    <h2>preço: R${pastry.price},00</h2>
-                    <button onClick={removeItem} value={pastry.id}>Remover Item</button>
+                    <h2>Preço: R${pastry.price},00</h2>
+                    <button onClick={removeItem} value={pastry.id} className={styles.iconRemove}><FontAwesomeIcon icon={faTrash} style={{color: "#fb0909",}} /></button>
                   </div>
                 )
               }
             })
           }
-          <button onClick={endOrder}>Finalizar compra</button>
+          <button onClick={endOrder} className={styles.finishOrder}>Finalizar pedido</button>
         </div>
       </main>
 

@@ -1,14 +1,15 @@
-.header{
+.header {
     background-color: #fadd87;
 }
 
-.img{
+.img {
     width: 8%;
     margin-left: 1.5rem;
 }
 
-@media screen and (max-width: 800px){
-    .img{
+
+@media (max-width: 800px) {
+    .img {
         width: 20%;
     }
 }

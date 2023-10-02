@@ -285,8 +285,9 @@ export default function Home() {
         </div>
 
         <div className={customOrderDivVisible}>
-          <button onClick={returnMakingOrder}  className={styles.icon}>
-          <FontAwesomeIcon icon={faCircleArrowLeft} style={{ color: "#de9f17", }} />
+
+          <button className={styles.askov} onClick={returnMakingOrder} >
+            Adicionar novo pedido
           </button>
           {
             orderPastry.map(pastry => {
@@ -325,7 +326,8 @@ export default function Home() {
       </main>
 
       <main className={seeOrdersMainVisible}>
-        <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{ color: "#de9f17", }} /></button>
+      <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{ color: "#de9f17", }} /></button>
+
         {
           endedOrders.map(order => {
             return (

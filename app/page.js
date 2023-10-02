@@ -273,10 +273,10 @@ export default function Home() {
           </div>
           <div>
             {
-              orderPrice > 0 ? <p>Preço total: R$ ${orderPrice},00</p> : <p>preço total: R$ 0,00</p>
+              orderPrice > 0 ? <p>Preço total: R$ ${orderPrice},00</p> : <p>Preço total: R$ 0,00</p>
             }
             {
-              orderPastry.length > 0 ? <p>Quantidade de itens: {orderPastry.length}</p> : <p>quantidade de itens: 0</p>
+              orderPastry.length > 0 ? <p>Quantidade de itens: {orderPastry.length}</p> : <p>Quantidade de itens: 0</p>
             }
             <button onClick={addPastelToOrder} className={styles.order}>Adicionar pastel</button>
             <button onClick={addDrinkToOrder} className={styles.order}>Adicionar bebida</button>
@@ -285,6 +285,7 @@ export default function Home() {
         </div>
 
         <div className={customOrderDivVisible}>
+
           <button className={styles.askov} onClick={returnMakingOrder} >
             Adicionar novo pedido
           </button>

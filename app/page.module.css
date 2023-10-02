@@ -201,11 +201,18 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     cursor: pointer;
     width: 15%;
     display: block;
-    width: 40%;
+    width: 80%;
     margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.options {
+.order:hover{
+    background-color:#d49b00d0;
+    scale: 1.1;
+}
+.options{
+
     padding: 10px;
     font-size: 16px;
     border-radius: 8px;
@@ -240,7 +247,7 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
 .finishOrder {
     border-radius: 6px;
     background-color: #955116;
-    width: 50%;
+    width: 80%;
     height: 4rem;
     cursor: pointer;
     font-size: 1.2rem;

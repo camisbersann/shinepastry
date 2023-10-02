@@ -93,7 +93,7 @@ export default function Home() {
 
   function addPastelToOrder() {
     if (pastry == '') {
-      setMessage('selecione um pastel')
+      setMessage('Selecione um pastel')
       setTypeMessage('error')
       setMessageVisible(styles.showing)
       disapearMessage()
@@ -101,7 +101,7 @@ export default function Home() {
     } else {
       setOrderPastry([...orderPastry, pastrysList.getPastry(pastry)])
       setOrderPrice(Number(orderPrice + pastrysList.getPastry(pastry).price))
-      setMessage('pastel adicionado ao pedido')
+      setMessage('Pastel adicionado ao pedido')
       setTypeMessage('success')
       setMessageVisible(styles.showing)
       disapearMessage()
@@ -110,7 +110,7 @@ export default function Home() {
 
   function addDrinkToOrder() {
     if (drink == '') {
-      setMessage('selecione uma bebida')
+      setMessage('Selecione uma bebida')
       setTypeMessage('error')
       setMessageVisible(styles.showing)
       disapearMessage()
@@ -118,7 +118,7 @@ export default function Home() {
     } else {
       setOrderPastry([...orderPastry, drinksList.getDrink(drink)])
       setOrderPrice(Number(orderPrice + drinksList.getDrink(drink).price))
-      setMessage('bebida adicionada ao pedido')
+      setMessage('Bebida adicionada ao pedido')
       setTypeMessage('success')
       setMessageVisible(styles.showing)
       disapearMessage()
@@ -163,7 +163,7 @@ export default function Home() {
 
   function endOrder() {
     if (orderPastry.length == 0) {
-      setMessage('adicione um item ao pedido')
+      setMessage('Adicione um item ao pedido')
       setTypeMessage('error')
       setMessageVisible(styles.showing)
       disapearMessage()
@@ -171,7 +171,7 @@ export default function Home() {
     } else {
       setOrderPastry([...orderPastry, orderID])
       addToEndedOrders()
-      setMessage('pedido finalizado')
+      setMessage('Pedido finalizado')
       setTypeMessage('success')
       setMessageVisible(styles.showing)
       disapearMessage()

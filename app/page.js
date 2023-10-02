@@ -273,10 +273,10 @@ export default function Home() {
           </div>
           <div>
             {
-              orderPrice > 0 ? <p>preço total: R$ ${orderPrice},00</p> : <p>preço total: R$ 0,00</p>
+              orderPrice > 0 ? <p>Preço total: R$ ${orderPrice},00</p> : <p>preço total: R$ 0,00</p>
             }
             {
-              orderPastry.length > 0 ? <p>quantidade de itens: {orderPastry.length}</p> : <p>quantidade de itens: 0</p>
+              orderPastry.length > 0 ? <p>Quantidade de itens: {orderPastry.length}</p> : <p>quantidade de itens: 0</p>
             }
             <button onClick={addPastelToOrder} className={styles.order}>Adicionar pastel</button>
             <button onClick={addDrinkToOrder} className={styles.order}>Adicionar bebida</button>
@@ -286,7 +286,7 @@ export default function Home() {
 
         <div className={customOrderDivVisible}>
           <button onClick={returnMakingOrder}>
-            voltar para fazer pedidos
+          <FontAwesomeIcon icon={faCircleArrowLeft} style={{ color: "#de9f17", }} />
           </button>
           {
             orderPastry.map(pastry => {
@@ -325,19 +325,19 @@ export default function Home() {
       </main>
 
       <main className={seeOrdersMainVisible}>
-        <button onClick={returnMainButton}>retornar para principal</button>
+        <button onClick={returnMainButton} className={styles.icon}><FontAwesomeIcon icon={faCircleArrowLeft} style={{ color: "#de9f17", }} /></button>
         {
           endedOrders.map(order => {
             return (
               <div key={order[order.length - 1]} className={styles.orderCard}>
-                <h1>pedido</h1>
+                <h1>Pedido</h1>
                 {
                   order.map(pastry => {
                     if (pastry.ingredients.length > 0) {
                       return (
                         <div key={pastry.id} className={styles.orderItem}>
                           <h1>{pastry.name}</h1>
-                          <h2>preço: R${pastry.price},00</h2>
+                          <h2>Preço: R${pastry.price},00</h2>
                           <details>
                             <ul className={styles.detalhes}>
                               {
@@ -361,7 +361,7 @@ export default function Home() {
                       return (
                         <div key={pastry.id} className={styles.orderItem}>
                           <h1>{pastry.name}</h1>
-                          <h2>preço: R${pastry.price},00</h2>
+                          <h2>Preço: R${pastry.price},00</h2>
                         </div>
                       )
                     }

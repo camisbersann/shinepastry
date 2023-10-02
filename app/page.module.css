@@ -115,7 +115,7 @@ essa estilização vai ser o que tem a coca e o pastel dentro*/
     align-items: center;
     justify-content: space-between;
     margin: 20px;
-    border: 1px solid #000;
+    border: 3px solid #fadd87;
     border-radius: 5px;
     padding: 1rem;
     background-color: #ffffff;
@@ -129,7 +129,7 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
 */
 .orderItem {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     margin: 0.5rem;
@@ -138,6 +138,13 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     color: #000;
     width: 70%;
     height: 30%;
+}
+
+.pastryThings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
 }
 
 .removeButton {
@@ -244,6 +251,14 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     flex-direction: column;
     list-style: none;
     cursor: pointer;
+    border: 2px solid #83440e;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-radius: 6px;
+}
+
+.detalhes ul {
+    list-style: none;
 }
 
 .deleteButton {
@@ -258,6 +273,7 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     cursor: pointer;
     border-radius: 5px;
     margin: 0.25rem;
+    margin-top: 1.5rem;
 }
 
 .deleteButton:hover {

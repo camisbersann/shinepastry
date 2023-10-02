@@ -253,6 +253,10 @@ na via das duvidas adiciona um pedido e aperta o botão da direita
     font-size: 1.2rem;
 }
 
+.finishOrder:hover{
+    background-color: #d49b00d0;
+    scale: 1.1;
+}
 .detalhes {
     display: flex;
     flex-direction: column;

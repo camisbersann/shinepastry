@@ -6,3 +6,9 @@
     width: 8%;
     margin-left: 1.5rem;
 }
+
+@media screen and (max-width: 800px){
+    .img{
+        width: 20%;
+    }
+}

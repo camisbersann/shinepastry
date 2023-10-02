@@ -336,10 +336,13 @@ export default function Home() {
                     if (pastry.ingredients.length > 0) {
                       return (
                         <div key={pastry.id} className={styles.orderItem}>
+                          <div className={styles.pastryThings}>
                           <h1>{pastry.name}</h1>
                           <h2>Preço: R${pastry.price},00</h2>
-                          <details>
-                            <ul className={styles.detalhes}>
+                          </div>
+                          <div>
+                          <details className={styles.detalhes}>
+                            <ul>
                               {
                                 pastry.ingredients.map(ingredient => {
                                   if (ingredient.quant > 0) {
@@ -352,6 +355,7 @@ export default function Home() {
                               }
                             </ul>
                           </details>
+                          </div>
                           <div>
                               
                           </div>

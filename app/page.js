@@ -99,8 +99,29 @@ export default function Home() {
       disapearMessage()
       return
     } else {
-      setOrderPastry([...orderPastry, pastrysList.getPastry(pastry)])
-      setOrderPrice(Number(orderPrice + pastrysList.getPastry(pastry).price))
+      const pastrysList2 = new PastrysList();
+      pastrys.forEach(pastry => {
+        const newPastry = new Pastry(pastry.name);
+        const pastryIngredientsList = new PastryIngredients();
+      
+        pastryIngredients.forEach(ingredient => {
+          pastryIngredientsList.add(new PastryIngredient(ingredient.name, ingredient.price))
+        })
+      
+        pastryIngredientsList.pastryIngredients.forEach(ingredient => {
+          newPastry.addIngredient(ingredient)
+          pastry.ingredients.forEach(oldIngredient => {
+            if (ingredient.name == oldIngredient.name) {
+              ingredient.increaseQuant()
+            }
+          })
+        })
+        newPastry.renderPrice()
+        pastrysList2.add(newPastry)
+      })
+
+      setOrderPastry([...orderPastry, pastrysList2.getPastry(pastry)])
+      setOrderPrice(Number(orderPrice + pastrysList2.getPastry(pastry).price))
       setMessage('Pastel adicionado ao pedido')
       setTypeMessage('success')
       setMessageVisible(styles.showing)

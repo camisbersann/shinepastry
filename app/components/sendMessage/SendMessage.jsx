@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './sendmessage.module.css';
+import styles from './SendMessage.module.css';
 
 export const SendMessage = ({type, message}) => {
 

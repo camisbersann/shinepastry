@@ -307,8 +307,8 @@ export default function Home() {
 
         <div className={customOrderDivVisible}>
 
-          <button className={styles.askov} onClick={returnMakingOrder} >
-            Adicionar novo pedido
+          <button className={styles.icon} onClick={returnMakingOrder} >
+          <FontAwesomeIcon icon={faCircleArrowLeft} style={{ color: "#de9f17", }} />
           </button>
           {
             orderPastry.map(pastry => {
